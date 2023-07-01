@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 
+import axios from "axios";
 import bodyParser from "body-parser";
 import { randomBytes } from "crypto";
 
@@ -26,7 +27,19 @@ app.post("/posts", (req, res) => {
     title,
   };
 
+  axios
+    .post("http://localhost:4005/events", {
+      type: "PostType",
+      data: { id, title },
+    })
+    .catch((error) => console.log(error));
+
   res.status(201).send(posts[id]);
+});
+
+app.post("/events", (req, res) => {
+  const event = req.body;
+  console.log(event);
 });
 
 app.use("*", (req, res) => {

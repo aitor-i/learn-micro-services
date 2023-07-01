@@ -4,11 +4,10 @@ import cors from "cors";
 
 const app = express();
 
-app.get(cors());
+app.use(cors());
 app.use(bodyParser.json());
 
 const posts = {};
-const comments = [];
 
 app.post("/events", (req, res) => {
   const { type, data } = req.body;
@@ -23,10 +22,14 @@ app.post("/events", (req, res) => {
     let { id, content, postId } = data;
     const post = posts[postId];
     post.comments.push({ id, content });
-    console.log(type, post);
+    console.log(type, JSON.stringify(post));
   }
 
   res.send({});
+});
+
+app.get("/posts", (req, res) => {
+  res.status(201).send(posts);
 });
 
 app.listen(4003, () => {
