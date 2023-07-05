@@ -12,10 +12,12 @@ export const PostList = ({ posts }) => {
         console.log("comments", comments);
 
         return (
-          <div className="card" key={post.id}>
+          <div className="card w-80 " key={post.id}>
             <h2 className="">{post.title}</h2>
-            <CommentCreate id={post.id} />
-            {comments && <CommentList comments={comments} />}
+            <div className="flex flex-col gap-3">
+              {comments && <CommentList comments={comments} />}
+              <CommentCreate id={post.id} />
+            </div>
           </div>
         );
       })}
