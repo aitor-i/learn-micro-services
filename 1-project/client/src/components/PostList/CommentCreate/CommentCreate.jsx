@@ -14,9 +14,9 @@ export const CommentCreate = ({ id }) => {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
-        <section>
-          <label>Comment</label>
+      <form className="flex flex-col gap-4" onSubmit={submitHandler}>
+        <section className="flex flex-col">
+          <label>New comment</label>
           <input
             onChange={(event) => setComment(event.target.value)}
             type="text"
