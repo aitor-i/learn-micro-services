@@ -10,17 +10,19 @@ export const PostCreate = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Create new Post</h1>
-      <form onSubmit={submitHandler}>
-        <section>
+    <div className="flex flex-col gap-3 mb-5 ">
+      <h1 className="text-4xl font-bold ">Create new Post</h1>
+      <form className="flex gap-7 items-end" onSubmit={submitHandler}>
+        <section className="flex flex-col gap-2">
           <label>Title</label>
           <input
             onChange={(event) => setTitle(event.target.value)}
             type="text"
           />
         </section>
-        <button type="submit">Submit</button>
+        <button className="m-0" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
