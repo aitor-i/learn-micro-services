@@ -20,16 +20,26 @@ export const App = () => {
   }, []);
   return (
     <div
-      className="bg-gradient-to-r from-purple-500 to-pink-500"
+      className="bg-slate-50 "
       style={{
         width: "100vw",
         minHeight: "100vh",
         overflow: "hidden",
-        padding: "1rem",
       }}
     >
-      <PostCreate />
-      <PostList posts={posts} />
+      <h1 className="p-3 mb-4  font-bold text-slate-50 - bg-green-400 w-full m-0 text- ">
+        Big iron post
+      </h1>
+      <div className="p-3 flex flex-col gap-3">
+        <PostCreate />
+        <PostList posts={posts} />
+      </div>
+      {/* <dialog id="dialog" className="absolute top-14 p-9 rounded-md " open>
+        <p>Greetings, one and all!</p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </dialog> */}
     </div>
   );
 };
