@@ -24,6 +24,10 @@ app.post("/events", (req, res) => {
     console.log(err.message); //query service
   });
 
+  axios.post("http://localhost:4004/events", event).catch((err) => {
+    console.log(err.message); //query service
+  });
+
   res.send({ status: "OK" });
 });
 
